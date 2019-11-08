@@ -4,24 +4,24 @@ body {
        left : 5%;
        padding: 0px;
        margin: 0px;
-       font-family: arial, helvetica;
-       font-weight: 600; 
-       font-size: 15px;
+       /* font-family: monospace; */
+       font-weight: 600;
+       font-size: 14px;
        border-color : #2E457B;
        color : #43307F;
        background-image:url('background.png');
        /* background : #DEF5AD; */
-	
+
 }
 
 #header {
           text-align: center;
-          float: left; 
+          float: left;
           /*width: 50%;
-          padding-left: 12%; 
+          padding-left: 12%;
              */
           width: 76%;
-          padding-left: 12%;        
+          padding-left: 12%;
           padding-top: 0.5ex;
           color : #3B8686;
 }
@@ -35,21 +35,21 @@ body {
 }
 
 #content {
-           text-align: left; 
-           float: left; 
+           text-align: left;
+           float: left;
            width: 50%;
-           padding-left: 12%; 
+           padding-left: 12%;
 }
 
 #side {
-        text-align: left; 
-        padding-right: 12%; 
-        float: right; 
+        text-align: left;
+        padding-right: 12%;
+        float: right;
         width: 25%;
         padding-top: 1.5ex;
 }
 
-.box legend { 
+.box legend {
           color : #2E457B;
           background : none;
           -moz-border-radius: 2ex;
@@ -58,35 +58,35 @@ body {
           border-radius: 2ex;
           padding: 0.5ex;
           border : 2px solid #2E457B;
-} 
+}
 
-a { 
+a {
     color: #1B9898;
     text-decoration:  none;
 }
 
-a:hover { 
+a:hover {
           color: #24CACA;
           background: #1B9898;
 
 }
 
 hr.line {
-          width: 50%; 
+          width: 50%;
           height: 1px;
 }
 
-#content li { 
-     color : #3B8686; 
+#content li {
+     color : #3B8686;
      padding-bottom: 1ex;
 }
 
-#content li ul li { 
+#content li ul li {
            color : #43307F;
            padding-bottom: 0.5ex;
 }
 
-li em { 
+li em {
      text-decoration : underline;
      color: #246E6E;
  }
@@ -126,11 +126,11 @@ li em {
 }
 
 
-#header a { 
-	color: inherit; 
+#header a {
+	color: inherit;
 }
 
-#header a:hover { 
+#header a:hover {
 	text-decoration : underline;
 	background : inherit;
 }
@@ -140,12 +140,12 @@ li em {
      color : #3B8686;
      opacity: 1;
      -moz-opacity:1;
-     position: absolute; 
+     position: absolute;
 	top : inherit;
 	left : 70%;
 	width : 30%;
      background : #FFFFFF;
-     padding : 0.5ex;	 
+     padding : 0.5ex;
          border-color : #2E457B;
          border : 2px solid #2E457B;
          -moz-border-radius: 0.5ex;
@@ -154,7 +154,7 @@ li em {
          border-radius: 2ex;
 }
 
-#navbar a { 
+#navbar a {
               color: orange;
 }
 
@@ -179,7 +179,7 @@ li em {
     height : 10%;
 }
 
-code {   
+code {
        color: #bdc820;
 }
 

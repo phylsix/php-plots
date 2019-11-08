@@ -1,5 +1,5 @@
 <html>
-<?php 
+<?php
 
 function isRegex($str0) {
 	$regex = "/^\/[\s\S]+\/$/";
@@ -30,13 +30,13 @@ function resource($url,$name)
  * Reads a list of links from a file and renders them.
  *
  * The expected file format is
- * url && linkname 
+ * url && linkname
  */
 function get_bookmarks($filename,$target="_blank",$rowlen=12,$opentable="<table>",$closetable="</table>",$openrow="<tr>",$closerow="</tr>",$opencell="<td>",$closecell="</td>")
 {
 	$file = file_get_contents($filename);
 	$bookmarks=split("\n",$file);
-  
+
         $ret = $opentable;
         $n = 1;
         foreach( $bookmarks as $bm ) {
@@ -70,11 +70,11 @@ $script_path = str_replace("//","/","/".$script_path);
 chdir( $target_folder  )
 ?>
 
-<link rel="stylesheet" type="text/css" href="<?php echo $script_path."/res/theme.css"; ?>" />
-<link rel="stylesheet" type="text/css" href="<?php echo $script_path."/res/style.css"; ?>" />
-<script language="javascript" type="text/javascript" src="<?php echo $script_path."/res/jquery.js" ?>" ></script>
-<script language="javascript" type="text/javascript" src="<?php echo $script_path."/res/jquery-ui.js" ?>" ></script>
-<script language="javascript" type="text/javascript" src="<?php echo $script_path."/res/style.js" ?>" ></script>
+<link rel="stylesheet" type="text/css" href="<?php echo $script_path."/static/theme.css"; ?>" />
+<link rel="stylesheet" type="text/css" href="<?php echo $script_path."/static/style.css"; ?>" />
+<script language="javascript" type="text/javascript" src="<?php echo $script_path."/static/jquery.js" ?>" ></script>
+<script language="javascript" type="text/javascript" src="<?php echo $script_path."/static/jquery-ui.js" ?>" ></script>
+<script language="javascript" type="text/javascript" src="<?php echo $script_path."/static/style.js" ?>" ></script>
 <script language="javascript" type="text/javascript">
 $(function() {
           $(".numbers-row").append('<span class="button">+</span>&nbsp;&nbsp;<span class="button">-</span>');
@@ -115,6 +115,7 @@ $allfiles = glob("*");
 usort($allfiles, create_function('$a,$b', 'return filemtime($b) - filemtime($a);'));
 foreach ($allfiles as $filename) {
 	if (is_dir($filename)) {
+        if ($filename=="static") {continue;}
 		$has_subs = true;
 		array_push( $folders, $filename);
 	}
@@ -159,7 +160,7 @@ if( $bookm != "" ) {
 ?>
 
 <h2><a name="plots">Plots</a></h2>
-<p><form>Filter: <input type="text" name="match" size="30" 
+<p><form>Filter: <input type="text" name="match" size="30"
 	value="<?php if (isset($_GET['match'])) print htmlspecialchars($_GET['match']);  ?>" />
 <input type="Submit" value="Go" />
 <div class="numbers-row">
@@ -217,7 +218,7 @@ if ($_GET['noplots']) {
 			$other_filename=$path_parts['filename'].$ex;
 			if( $other_filename == $path_parts['basename'] ) {
 				break;
-			} else if ( file_exists($other_filename) ) { 
+			} else if ( file_exists($other_filename) ) {
 				$skip = true;
 				break;
 			}
@@ -233,7 +234,7 @@ if ($_GET['noplots']) {
 		} else {
 			$short_filename=$filename;
 		}
-		$imgname=$path_parts['filename']."_thumb.".$path_parts['extension'];		
+		$imgname=$path_parts['filename']."_thumb.".$path_parts['extension'];
 		if( !file_exists($imgname) ) {
 			$imgname = $filename;
 		} else {
@@ -247,13 +248,13 @@ if ($_GET['noplots']) {
 		foreach ($other_exts as $ex) {
 			$other_filename = $path_parts['dirname']."/".$path_parts['filename'].$ex;
 			if (file_exists($other_filename)) {
-				if ($ex != '.txt') { 
+				if ($ex != '.txt') {
 					array_push($others, "<a class=\"file\" href=\"$other_filename\">[" . $ex . "]</a>");
-					array_push($displayed, $other_filename); 
+					array_push($displayed, $other_filename);
 				} else {
 					$text = file_get_contents($other_filename);
 					array_push($others, "<span class=\"txt\"><a class=\"file\" href=\"$other_filename\">[" . $ex . "]</a><span class=\"txt_cont\">". $text ."</span></span>");
-									
+
 				}
 			}
 		}
@@ -275,20 +276,21 @@ foreach ($allfiles as $filename) {
 	    if( fnmatch("*_thumb.*", $filename) ) {
 		    continue;
 	    }
-	if ( substr($filename,-1) == "~" ) continue;
-        if (is_dir($filename)) {
-		// print "<li>[DIR] <a href=\"$filename\">$filename</a></li>";
-        } else {
-            print "<li><a href=\"$filename\">$filename</a></li>";
-        }
+    if ( substr($filename,-1) == "~" ) continue;
+    if ($filename=="index.php") continue;
+    if (is_dir($filename)) {
+    // print "<li>[DIR] <a href=\"$filename\">$filename</a></li>";
+    } else {
+        print "<li><a href=\"$filename\">$filename</a></li>";
+    }
     }
 }
 ?>
 </ul>
 </div>
-<p>
-Like this page? <a href="https://github.com/musella/php-plots">Get it here.</a><br />
-Credits: Giovanni Petrucciani.
+<hr/>
+<p style="font: x-small;">
+<a href="https://github.com/musella/php-plots">Original credit</a><br />
 </p>
 </body>
 </html>
