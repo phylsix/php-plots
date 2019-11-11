@@ -70,34 +70,34 @@ $script_path = str_replace("//","/","/".$script_path);
 chdir( $target_folder  )
 ?>
 
-<link rel="stylesheet" type="text/css" href="<?php echo $script_path."/static/theme.css"; ?>" />
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
 <link rel="stylesheet" type="text/css" href="<?php echo $script_path."/static/style.css"; ?>" />
-<script language="javascript" type="text/javascript" src="<?php echo $script_path."/static/jquery.js" ?>" ></script>
-<script language="javascript" type="text/javascript" src="<?php echo $script_path."/static/jquery-ui.js" ?>" ></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 <script language="javascript" type="text/javascript" src="<?php echo $script_path."/static/style.js" ?>" ></script>
 <script language="javascript" type="text/javascript">
-$(function() {
-          $(".numbers-row").append('<span class="button">+</span>&nbsp;&nbsp;<span class="button">-</span>');
-          $(".button").click( function() {
+$(function () {
+	$(".numbers-row").append('<span class="button">+</span>&nbsp;&nbsp;<span class="button">-</span>');
+	$(".button").click(function () {
 
-                                  var $button = $(this);
-                                  var oldValue = $button.parent().find("input").val();
+		var $button = $(this);
+		var oldValue = $button.parent().find("input").val();
 
-                                  if ($button.text() == "+") {
-                                          var newVal = parseFloat(oldValue) + 1;
-                                  } else {
-                                          // Don't allow decrementing below zero
-                                          if (oldValue > 0) {
-                                                  var newVal = parseFloat(oldValue) - 1;
-                                          } else {
-                                                  newVal = 0;
-                                          }
-                                  }
+		if ($button.text() == "+") {
+			var newVal = parseFloat(oldValue) + 1;
+		} else {
+			// Don't allow decrementing below zero
+			if (oldValue > 0) {
+				var newVal = parseFloat(oldValue) - 1;
+			} else {
+				newVal = 0;
+			}
+		}
 
-                                  $button.parent().find("input").val(newVal);
-                                  $button.parent().parent().find("input").click();
+		$button.parent().find("input").val(newVal);
+		$button.parent().parent().find("input").click();
 
-                          });
+	});
 });
 </script>
 
@@ -243,7 +243,7 @@ if ($_GET['noplots']) {
 		print "<div class='pic'>\n";
 		print "<h3><a href=\"$filename\">$short_filename</a></h3>";
 		// print "<a href=\"$filename\">";
-		print "<img src=\"$imgname\" style=\"border: none; width: 40ex; \">";
+		print "<img src=\"$imgname\" style=\"border: none; height: 35ex; \">";
 		// print "</a>";
 		foreach ($other_exts as $ex) {
 			$other_filename = $path_parts['dirname']."/".$path_parts['filename'].$ex;
@@ -289,8 +289,8 @@ foreach ($allfiles as $filename) {
 </ul>
 </div>
 <hr/>
-<p style="font: x-small;">
-<a href="https://github.com/musella/php-plots">Original credit</a><br />
-</p>
+<div class="footer">
+	<a href="https://github.com/phylsix/php-plots">Source</a> | <a href="https://github.com/musella/php-plots">Original credit</a>
+</div>
 </body>
 </html>

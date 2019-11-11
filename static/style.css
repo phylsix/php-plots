@@ -1,9 +1,12 @@
-/* <![CDATA[ */
-
-
 body {
     background: white;
 }
+
+div#piccont {
+    width: 95%;
+    margin: 0 auto;
+}
+
 div.pic h3 {
     font-size: 11pt;
     margin: 0.5em 1em 0.2em 1em;
@@ -14,16 +17,16 @@ div.pic p {
 }
 
 div.pic {
-    display: block;
-       	background: white;
-    float: left;
-    border : 2px dashed #466603;
+    display: inline-block;
+    background: white;
+    /* float: left; */
+    border : 2px dotted grey;
     margin : 0.5ex;
     padding : 0;
-    -moz-border-radius: 2ex;
-    -webkit-border-radius: 2ex;
-    -khtml-border-radius: 2ex;
-    border-radius: 2ex;
+    -moz-border-radius: 1ex;
+    -webkit-border-radius: 1ex;
+    -khtml-border-radius: 1ex;
+    border-radius: 1ex;
     -moz-box-shadow: 7px 5px 5px rgb(80,80,80);    /* Firefox 3.5 */
     -webkit-box-shadow: 7px 5px 5px rgb(80,80,80); /* Chrome, Safari */
     box-shadow: 7px 5px 5px rgb(80,80,80);         /* New browsers */
@@ -34,7 +37,8 @@ div.pic {
 div.dirlinks h2 {  margin-bottom: 4pt; margin-left: -24pt; color: rgb(80,0,0);  }
 div.dirlinks {  margin: 0 24pt; }
 div.dirlinks a {
-    font-size: 11pt; font-weight: bold;
+    font-size: 11pt;
+    font-weight: bold;
     padding: 0 0.5em;
 }
 .button:hover { cursor : pointer; }
@@ -54,9 +58,10 @@ div.dirlinks a {
 }
 
 img {
-    width : 40ex;
+    /* width : 40ex; */
+    height: 35ex;
     border-color : #466603;
-    border : 2px dashed #466603;
+    border : 1px double #466603;
     margin : 0.5ex;
     padding : 0;
     -moz-border-radius: 2ex;
@@ -73,4 +78,8 @@ img.wide:hover {
     cursor : sw-resize;
 }
 
-/* ]]> */
+div.footer a {
+    font: 9px;
+    text-decoration: none;
+    color: black;
+}
