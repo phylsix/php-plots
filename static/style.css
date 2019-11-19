@@ -43,6 +43,7 @@ div.dirlinks a {
 }
 .button:hover { cursor : pointer; }
 .txt_cont {
+    font-family: monospace;
     display : none;
     white-space:pre-wrap;
     position: absolute;
