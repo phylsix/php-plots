@@ -25,6 +25,12 @@ function resource($url,$name)
          return bookmark($url, $name, "_blank", "", "");
 }
 
+function replace_string_in_file($filename, $str_to_replace, $replace_with)
+{
+    $content=file_get_contents($filename);
+    $content=str_replace($str_to_replace, $replace_with, $content);
+    return $content;
+}
 
 /**
  * Reads a list of links from a file and renders them.
@@ -138,7 +144,10 @@ if ($has_subs) {
 
 foreach (array("00_README.txt", "README.txt", "readme.txt") as $readme) {
     if (file_exists($readme)) {
-        print "<pre class='readme'>\n"; readfile($readme); print "</pre>";
+        $htmltags=array("<", ">");
+        $escaped=array("&lt", "&gt");
+        $replaced=replace_string_in_file($readme, $htmltags, $escaped);
+        print "<pre class='readme'>\n"; print $replaced; print "</pre>";
     }
 }
 
